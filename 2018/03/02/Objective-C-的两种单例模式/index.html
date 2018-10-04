@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Objective-C," />
 
 
 
@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="咕叽咕叽">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一生一念，一念一人">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="1.@synchronized单例123456789+ (id)sharedInstance &amp;#123;	static Instance *obj = nil;	@synchronized([Instance class]) &amp;#123;		if (!obj) &amp;#123;			obj = [[Instance alloc] init];		&amp;#125;	&amp;#125;	return obj;&amp;#">
+<meta name="keywords" content="Objective-C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C 的两种单例模式">
+<meta property="og:url" content="http://yoursite.com/2018/03/02/Objective-C-的两种单例模式/index.html">
 <meta property="og:site_name" content="一生一念，一念一人">
-<meta property="og:description" content="咕叽咕叽">
+<meta property="og:description" content="1.@synchronized单例123456789+ (id)sharedInstance &amp;#123;	static Instance *obj = nil;	@synchronized([Instance class]) &amp;#123;		if (!obj) &amp;#123;			obj = [[Instance alloc] init];		&amp;#125;	&amp;#125;	return obj;&amp;#">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-04T08:49:57.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一生一念，一念一人">
-<meta name="twitter:description" content="咕叽咕叽">
+<meta name="twitter:title" content="Objective-C 的两种单例模式">
+<meta name="twitter:description" content="1.@synchronized单例123456789+ (id)sharedInstance &amp;#123;	static Instance *obj = nil;	@synchronized([Instance class]) &amp;#123;		if (!obj) &amp;#123;			obj = [[Instance alloc] init];		&amp;#125;	&amp;#125;	return obj;&amp;#">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/02/Objective-C-的两种单例模式/"/>
 
 
 
 
 
-  <title>一生一念，一念一人</title>
+  <title>Objective-C 的两种单例模式 | 一生一念，一念一人</title>
   
 
 
@@ -163,9 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,141 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/shadowsocks-实现科学上网/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="uareagay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一生一念，一念一人">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/06/shadowsocks-实现科学上网/" itemprop="url">shadowsocks 实现科学上网</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T16:50:50+08:00">
-                2018-03-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-添加SSH-key"><a href="#1-添加SSH-key" class="headerlink" title="1.添加SSH key"></a>1.添加SSH key</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Copies the contents of the id_rsa.pub file to your clipboard</p>
-</blockquote>
-<h3 id="2-scp远程拷贝"><a href="#2-scp远程拷贝" class="headerlink" title="2.scp远程拷贝"></a>2.scp远程拷贝</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P port file_name user@ip:/dir_name</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>大写的<strong>P</strong>，指定端口号</p>
-</blockquote>
-<blockquote>
-<p>选项<strong>-P</strong>的位置放在scp命令之后，否则可能会有错</p>
-</blockquote>
-<h3 id="3-shadowsocks的启动和停止"><a href="#3-shadowsocks的启动和停止" class="headerlink" title="3.shadowsocks的启动和停止"></a>3.shadowsocks的启动和停止</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d stop</span><br></pre></td></tr></table></figure>
-<h3 id="4-解决-Errno-98-Address-already-in-use"><a href="#4-解决-Errno-98-Address-already-in-use" class="headerlink" title="4.解决[Errno 98] Address already in use"></a>4.解决[Errno 98] Address already in use</h3><p>出现这种问题是因为端口被其他的应用程序占用了，介绍一种解决办法，就是kill掉占用该端口的程序。假设被占用的端口号为<strong>8400</strong>，首先查出哪个进程占用了该端口号，<code>sudo lsof -i :8400</code>，然后kill掉这个进程，<code>kill -9 &lt;process_id&gt;</code>就可以了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -412,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/02/Objective-C-的两种单例模式/" itemprop="url">Objective-C 的两种单例模式</a></h1>
+          <h1 class="post-title" itemprop="name headline">Objective-C 的两种单例模式</h1>
         
 
         <div class="post-meta">
@@ -464,9 +330,7 @@
       
 
       
-        
-          
-            <h2 id="1-synchronized单例"><a href="#1-synchronized单例" class="headerlink" title="1.@synchronized单例"></a>1.@synchronized单例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ (id)sharedInstance &#123;</span><br><span class="line">	static Instance *obj = nil;</span><br><span class="line">	@synchronized([Instance class]) &#123;</span><br><span class="line">		if (!obj) &#123;</span><br><span class="line">			obj = [[Instance alloc] init];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="1-synchronized单例"><a href="#1-synchronized单例" class="headerlink" title="1.@synchronized单例"></a>1.@synchronized单例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ (id)sharedInstance &#123;</span><br><span class="line">	static Instance *obj = nil;</span><br><span class="line">	@synchronized([Instance class]) &#123;</span><br><span class="line">		if (!obj) &#123;</span><br><span class="line">			obj = [[Instance alloc] init];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="2-GCD单例-推荐"><a href="#2-GCD单例-推荐" class="headerlink" title="2.GCD单例(推荐)"></a>2.GCD单例(推荐)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+ (id)sharedInstance &#123;</span><br><span class="line">	static dispatch_once_t onceToken;</span><br><span class="line">	static Instance *obj = nil;</span><br><span class="line">	dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">        obj = [[Instance alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">	return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> dispatch_once的函数原型为<code>void dispatch_once(dispatch_once_t *predicate, dispatch_block_t block)</code><br>  其中，<code>dispatch_once_t</code>是<code>long</code>类型的<code>typedef</code>，<br> 代码为<code>typedef long dispatch_once_t;</code><br> <code>dispatch_block_t</code>是一个代码块的<code>typedef</code>，<br> 代码为<code>typedef void (^dispatch_block_t)(void);</code><br> 这个函数的作用是使得block在整个程序的生命周期中只执行一次，此操作时是线程安全的，每次调用这段代码是通过<code>onceToken</code>来检查，注意<strong><code>onceToken</code>必须严格初始化为0</strong>。在调用<code>dispatch_once</code>函数时检查到其值为0时，就执行block，执行完毕后<code>onceToken</code>减一。下一次调用<code>dispatch_once</code>函数时检查到<code>onceToken = -1</code>，就不会执行block。</p>
 <ol>
@@ -475,8 +339,6 @@
 <li>如果<code>onceToken != 0 &amp;&amp; onceToken != -1</code>，那么程序将一直卡在<code>dispatch_once</code>函数那里。</li>
 </ol>
 
-          
-        
       
     </div>
     
@@ -491,142 +353,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/05/我的第一篇博客（迁移）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="uareagay">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一生一念，一念一人">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/05/我的第一篇博客（迁移）/" itemprop="url">我的第一篇博客（迁移）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-05T16:34:09+08:00">
-                2018-02-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Objective-C/" rel="tag"># Objective-C</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="为什么要搭建博客？"><a href="#为什么要搭建博客？" class="headerlink" title="为什么要搭建博客？"></a>为什么要搭建博客？</h2><ul>
-<li>其实大二开学之初就已经基本搭建好了博客，后来一直忙于学校其它事情（除了学习），一直没有时间（其实就是懒…）静下心来好好钻研技术，总结经验，趁这个寒假好好钻研一下技术，学习一下屠龙之术，避免做一条咸鱼orz</li>
-<li>写博客有利于自己积累经验，总结踩坑教训，还可以梳理所学知识</li>
-<li>记录一下自己成长点滴</li>
-<li>反正git的基本使用是从搭建博客才开始学习的（逃</li>
-</ul>
-<blockquote>
-<p>顺便祝自己生日快乐🌞</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/05/我的第一篇博客（迁移）/" rel="next" title="我的第一篇博客（迁移）">
+                <i class="fa fa-chevron-left"></i> 我的第一篇博客（迁移）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/06/shadowsocks-实现科学上网/" rel="prev" title="shadowsocks 实现科学上网">
+                shadowsocks 实现科学上网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -636,10 +396,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -647,6 +408,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -667,8 +432,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -734,6 +508,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-synchronized单例"><span class="nav-number">1.</span> <span class="nav-text">1.@synchronized单例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-GCD单例-推荐"><span class="nav-number">2.</span> <span class="nav-text">2.GCD单例(推荐)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -854,10 +644,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
